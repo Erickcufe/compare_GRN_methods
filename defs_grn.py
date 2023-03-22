@@ -1,12 +1,12 @@
 import scanpy as sc
 import pandas as pd
-from arboreto.algo import genie3, grnboost2
-from pySCENIC.utils import modules_from_adjacencies
-from pySCENIC.prune import prune2df, df2regulons
-from pySCENIC.aucell import aucell
-from igraph import Graph
 import numpy as np
 import matplotlib.pyplot as plt
+from pyscenic import grn, ctx, aucell
+from arboreto.algo import grnboost2, genie3
+from anndata import AnnData
+import igraph as ig
+from scanpy.external.tl import scenic
 
 def infer_grn(adata):
     cell_types = adata.obs['cell_type'].unique().tolist()
